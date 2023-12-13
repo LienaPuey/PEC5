@@ -1,1 +1,22 @@
-<p>article-new-template works!</p>
+<div class="container mt-3 col-8">
+    <h2 class="mb-3">Crear artículo</h2>
+    <form [formGroup]="article" (ngSubmit)="submitForm()">
+        <div class="mb-3 col-4">
+          <label for="name" class="form-label">Nombre del artículo</label>
+          <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3 col-4">
+          <label for="price" class="form-label">Precio del artículo</label>
+          <input type="text" class="form-control" formControlName="price" id="price">
+        </div>
+        <div class="mb-3 col-4">
+            <label for="url" class="form-label">URL del artículo</label>
+            <input type="text" class="form-control" formControlName="url" id="url">
+          </div>
+        <div class="mb-3 form-check col-4">
+          <input type="checkbox" class="form-check-input" formControlName="sale" id="sale">
+          <label class="form-check-label" for="sale">En venta</label>
+        </div>
+        <button type="submit" [disabled]="article.invalid" class="btn btn-primary">Enviar</button>
+      </form>
+</div>
