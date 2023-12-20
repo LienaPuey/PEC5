@@ -13,8 +13,8 @@ export class ArticleNewTemplateComponent {
   constructor(){
     this.article = new FormGroup({
       name: new FormControl ('', Validators.required),
-      price: new FormControl ('', Validators.required),
-      url: new FormControl ('', Validators.required),
+      price: new FormControl ('', [Validators.required, Validators.pattern(/^-?\d*(\.\d+)?$/)]),
+      url: new FormControl ('', [Validators.required, Validators.pattern(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/)]),
       sale: new FormControl(false)
 
     })
@@ -22,9 +22,11 @@ export class ArticleNewTemplateComponent {
 
   submitForm(){
     if(this.article.valid){
-      const formData = this.article.value;
+      let formData = this.article.value;
       console.log("Datos del formulario: ", formData);
+      this.article.reset();
     }
+
   }
 
 }
