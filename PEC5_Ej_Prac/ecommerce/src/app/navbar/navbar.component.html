@@ -13,7 +13,7 @@
             <a class="nav-link" href="#" (click)="mostrarComponente('article-new-template')">Nuevo artículo template</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Nuevo artículo reactivo</a>
+            <a class="nav-link" href="#" (click)="mostrarComponente('article-new-reactive')" >Nuevo artículo reactivo</a>
           </li>
         </ul>
       </div>
@@ -25,4 +25,7 @@
   </div>
   <div *ngIf="componenteActual === 'article-new-template'">
     <app-article-new-template></app-article-new-template>
+  </div>
+  <div *ngIf="componenteActual === 'article-new-reactive'">
+    <app-article-new-reactive></app-article-new-reactive>
   </div>
