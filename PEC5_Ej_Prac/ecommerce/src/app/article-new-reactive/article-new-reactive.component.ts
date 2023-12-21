@@ -26,7 +26,12 @@ export class ArticleNewReactiveComponent {
     if(this.articleForm.valid){
       let formData = this.articleForm.value;
       console.log("Datos del formulario: ", formData);
-      this.articleForm.reset();
+      this.articleForm.reset({
+        name: '', 
+        price: 0, 
+        url: '', 
+        sale: false 
+      });
     }
   }
 }
